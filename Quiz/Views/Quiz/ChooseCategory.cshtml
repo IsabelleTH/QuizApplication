@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Quiz.Models.CategoryModel>
+
+@{
+
+    ViewBag.Title = "DisplayList";
+
+}
+
+<h2>What category are you interested in?</h2>
+
+@foreach (var item in Model.Where(model => model.Id == 1))
+{
+    <div>
+        <a href=@Url.Action("QuestionOne", "Quiz", new { id = item.Id})  class="btn btn-default">
+            @*<button class="btn btn-default">Programming</button>*@ Programming
+        </a>
+   </div>
+}
+
+<hr />
+
+@foreach (var item in Model.Where(model => model.Id == 2))
+{
+    <div>
+        <a href=@Url.Action("ComputerQuestions", "Quiz", new { id = item.Id}) class="btn btn-default">
+            Computers
+        </a>
+    </div>
+}

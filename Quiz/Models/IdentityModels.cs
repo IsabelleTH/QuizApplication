@@ -20,6 +20,16 @@ namespace Quiz.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<RegisterUser> RegisterUsers { get; set; }
+
+        public DbSet<QuestionModel> QuestionModels { get; set; }
+
+        public DbSet<CategoryModel> CategoryModels { get; set; }
+
+        public DbSet<AnswerModel> AnswerModels { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

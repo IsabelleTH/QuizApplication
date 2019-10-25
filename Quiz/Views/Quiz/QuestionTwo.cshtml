@@ -1,0 +1,50 @@
+﻿@model Quiz.Models.QuestionModel
+
+
+<h2>Quiz</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.QuestionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.AnswerModel.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.AnswerModel.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.AnswerModel.Answer)
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(m => m.QuestionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Question)
+            </td>
+            <td>
+                @Html.RadioButtonFor(m => m.AnswerModel.Answer, "Rudy")
+                Rudy
+            </td>
+            <td>
+                @Html.RadioButtonFor(m => m.AnswerModel.Answer, "JavaScript")
+                JavaScript
+            </td>
+            <td>
+                @Html.RadioButtonFor(m => m.AnswerModel.Answer, "Java")
+                Java
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Continue" class="btn btn-default" />
+}

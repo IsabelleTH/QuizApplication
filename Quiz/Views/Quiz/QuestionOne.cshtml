@@ -1,0 +1,62 @@
+﻿@model Quiz.Models.QuestionModel
+@*@using PagedList.Mvc;
+        @using PagedList
+    <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
+
+
+
+<h2>Quiz</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.QuestionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.AnswerModel.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.AnswerModel.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.AnswerModel.Answer)
+            </th>
+        </tr>
+
+
+        <tr>
+            <td>
+                @Html.DisplayFor(m => m.QuestionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(m => m.Question)
+            </td>
+            <td>
+                @Html.RadioButtonFor(m => m.AnswerModel.Answer, "C++")
+                C++
+            </td>
+            <td>
+                @Html.RadioButtonFor(m => m.AnswerModel.Answer, "Python")
+                Python
+            </td>
+            <td>
+                @Html.RadioButtonFor(m => m.AnswerModel.Answer, "C#")
+                C#
+            </td>
+    </table>
+
+    <input type="submit" value="Continue" class="btn btn-default" />
+
+}
+
+
+
+
+
+
+@*@Html.PagedListPager((IPagedList)ViewBag.OneQuestionPerPage, page => Url.Action("ProgrammingQuestions", new { page }))*@

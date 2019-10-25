@@ -46,6 +46,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -175,13 +181,71 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Quiz\QuizController.cs" />
+    <Compile Include="Controllers\RegisterLogin\RegisterUserController.cs" />
+    <Compile Include="Controllers\RegisterLogin\UserController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Migrations\201909301851097_Initial.cs" />
+    <Compile Include="Migrations\201909301851097_Initial.Designer.cs">
+      <DependentUpon>201909301851097_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909301906315_UpdateWebsite.cs" />
+    <Compile Include="Migrations\201909301906315_UpdateWebsite.Designer.cs">
+      <DependentUpon>201909301906315_UpdateWebsite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909301914170_AddQuestionModel.cs" />
+    <Compile Include="Migrations\201909301914170_AddQuestionModel.Designer.cs">
+      <DependentUpon>201909301914170_AddQuestionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910011232057_AddAnswerModel.cs" />
+    <Compile Include="Migrations\201910011232057_AddAnswerModel.Designer.cs">
+      <DependentUpon>201910011232057_AddAnswerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910011334461_AddCategoryTypeToQuestionEntity.cs" />
+    <Compile Include="Migrations\201910011334461_AddCategoryTypeToQuestionEntity.Designer.cs">
+      <DependentUpon>201910011334461_AddCategoryTypeToQuestionEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910011340131_AddQuestionTypeToAnswerModel.cs" />
+    <Compile Include="Migrations\201910011340131_AddQuestionTypeToAnswerModel.Designer.cs">
+      <DependentUpon>201910011340131_AddQuestionTypeToAnswerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910011356597_AddedSeveralAnswersToAnswerModel.cs" />
+    <Compile Include="Migrations\201910011356597_AddedSeveralAnswersToAnswerModel.Designer.cs">
+      <DependentUpon>201910011356597_AddedSeveralAnswersToAnswerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910041047575_AddFirstAndLastNameToUserModel.cs" />
+    <Compile Include="Migrations\201910041047575_AddFirstAndLastNameToUserModel.Designer.cs">
+      <DependentUpon>201910041047575_AddFirstAndLastNameToUserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910181336295_ChangedAnswerModel.cs" />
+    <Compile Include="Migrations\201910181336295_ChangedAnswerModel.Designer.cs">
+      <DependentUpon>201910181336295_ChangedAnswerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910181426364_ChangedQuestionModel.cs" />
+    <Compile Include="Migrations\201910181426364_ChangedQuestionModel.Designer.cs">
+      <DependentUpon>201910181426364_ChangedQuestionModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910221446352_AddMigration.cs" />
+    <Compile Include="Migrations\201910221446352_AddMigration.Designer.cs">
+      <DependentUpon>201910221446352_AddMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910221450322_AddChildQuestionIdToAnswerModel.cs" />
+    <Compile Include="Migrations\201910221450322_AddChildQuestionIdToAnswerModel.Designer.cs">
+      <DependentUpon>201910221450322_AddChildQuestionIdToAnswerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Extra\AccountViewModels.cs" />
+    <Compile Include="Models\AnswerModel.cs" />
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\RegisterUser.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Extra\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -190,6 +254,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -207,7 +272,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -241,6 +308,33 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\DeleteUser.cshtml" />
+    <Content Include="Views\User\CreateUser.cshtml" />
+    <Content Include="Views\RegisterUser\Index.cshtml" />
+    <Content Include="Views\RegisterUser\Register.cshtml" />
+    <Content Include="Views\RegisterUser\Login.cshtml" />
+    <Content Include="Views\RegisterUser\LoggedIn.cshtml" />
+    <Content Include="Views\RegisterUser\DeleteUser.cshtml" />
+    <Content Include="Views\RegisterUser\Details.cshtml" />
+    <Content Include="Views\Quiz\Index.cshtml" />
+    <Content Include="Views\Quiz\CreateQuiz\CreateCategory.cshtml" />
+    <Content Include="Views\Quiz\CreateQuiz\CreateQuestions.cshtml" />
+    <Content Include="Views\Quiz\CreateQuiz\CreateAnswer.cshtml" />
+    <Content Include="Views\Quiz\ChooseCategory.cshtml" />
+    <Content Include="Views\Quiz\Page.cshtml" />
+    <Content Include="Views\Quiz\ComputerQuestions.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Quiz\Questions\QuestionOne.cshtml" />
+    <Content Include="Views\Quiz\QuestionOne.cshtml" />
+    <Content Include="Views\Quiz\QuestionTwo.cshtml" />
+    <Content Include="Views\Quiz\QuestionThree.cshtml" />
+    <Content Include="Views\Quiz\FinishedTest.cshtml" />
+    <Content Include="Views\Quiz\WrongAnswerQuestionOne.cshtml" />
+    <Content Include="Views\Quiz\WrongAnswerQuestionTwo.cshtml" />
+    <Content Include="Views\Quiz\WrongAnswerQuestionThree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,6 +351,44 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201909301851097_Initial.resx">
+      <DependentUpon>201909301851097_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909301906315_UpdateWebsite.resx">
+      <DependentUpon>201909301906315_UpdateWebsite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909301914170_AddQuestionModel.resx">
+      <DependentUpon>201909301914170_AddQuestionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910011232057_AddAnswerModel.resx">
+      <DependentUpon>201910011232057_AddAnswerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910011334461_AddCategoryTypeToQuestionEntity.resx">
+      <DependentUpon>201910011334461_AddCategoryTypeToQuestionEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910011340131_AddQuestionTypeToAnswerModel.resx">
+      <DependentUpon>201910011340131_AddQuestionTypeToAnswerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910011356597_AddedSeveralAnswersToAnswerModel.resx">
+      <DependentUpon>201910011356597_AddedSeveralAnswersToAnswerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910041047575_AddFirstAndLastNameToUserModel.resx">
+      <DependentUpon>201910041047575_AddFirstAndLastNameToUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910181336295_ChangedAnswerModel.resx">
+      <DependentUpon>201910181336295_ChangedAnswerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910181426364_ChangedQuestionModel.resx">
+      <DependentUpon>201910181426364_ChangedQuestionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910221446352_AddMigration.resx">
+      <DependentUpon>201910221446352_AddMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910221450322_AddChildQuestionIdToAnswerModel.resx">
+      <DependentUpon>201910221450322_AddChildQuestionIdToAnswerModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,49 @@
+﻿@model Quiz.Models.QuestionModel
+
+<h2>Quiz</h2>
+
+@using(Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model=> model.AnswerModel.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnswerModel.Answer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnswerModel.Answer)
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.QuestionNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Question)
+            </td>
+            <td>
+                @Html.RadioButtonFor(model => model.AnswerModel.Answer, "1995")
+                1995
+            </td>
+            <td>
+                @Html.RadioButtonFor(model => model.AnswerModel.Answer, "2000")
+                2000
+            </td>
+            <td>
+                @Html.RadioButtonFor(model => model.AnswerModel.Answer, "2005")
+                2005
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="See score" class="btn btn-default" />
+}

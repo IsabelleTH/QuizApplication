@@ -1,0 +1,15 @@
+﻿@model Quiz.Models.UserViewModel
+
+@{
+    ViewBag.Title = "LoggedIn";
+}
+
+<h2>
+
+</h2>
+
+@if( Session["UserId"] != null)
+{
+    <h4>Welcome @Session["FirstName"].ToString()</h4>
+    <h5>Your current data score is @Session["DataScore"].ToString()</h5>
+}

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Quiz.Models.AnswerModel>
+
+<h2>Quiz</h2>
+
+@using(Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.Question.QuestionNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Question.Question)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Answer1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.Answer1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(m => m.RightAnswer)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question.QuestionNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question.Question)
+                </td>
+                <td>
+                    <input type="submit" value="Ett sekundärt storage minne" class="btn btn-default" formaction="@Url.Action("WrongAnswer", "Quiz")"
+                </td>
+                <td>
+                    <input type="submit" value="En border på skärmen" class="btn btn-default" formaction="@Url.Action("RightAnswer", "Quiz")"
+                </td>
+                <td>
+                    <input type="submit" value="Ett main minne" class="btn btn-default" formaction="@Url.Action("WrongAnswer", "Quiz")"
+                </td>      
+            </tr>
+        }
+    </table>
+}
